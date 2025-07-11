@@ -83,7 +83,7 @@ def main(opt):
         CG_iter=opt.CG_iter,
         CE_iter=opt.CE_iter,
     )
-
+    
 
     SSIM = StructuralSimilarityIndexMeasure(data_range=1.0).to(device)
     PSNR = PeakSignalNoiseRatio(data_range=1.0).to(device)
@@ -113,7 +113,7 @@ def main(opt):
 
     ax[2].imshow(reconstruction[0, 0].cpu().detach().numpy(), cmap="gray")
     ax[2].axis("off")
-    ax[2].set_title(f"{opt.algo} Predicted\nSSIM: {ssim_pred:.4f}, PSNR: {psnr_pred:.2f}")
+    ax[2].set_title(f"Predicted\nSSIM: {ssim_pred:.4f}, PSNR: {psnr_pred:.2f}")
 
     ax[3].imshow(y[0, 0].cpu().detach().numpy().T, cmap="jet")
     ax[3].axis("off")
@@ -121,9 +121,8 @@ def main(opt):
 
     ax[4].imshow(error_map[0, 0].cpu().detach().numpy(), cmap="hot")
     ax[4].axis("off")
-    ax[4].set_title(f"Error Map ({opt.algo} - GT)")
+    ax[4].set_title(f"Error Map")
     plt.colorbar(ax[4].images[0], ax=ax[4])
-    plt.suptitle(f"CT Reconstruction with {opt.algo} Algorithm", fontsize=16)
     plt.tight_layout()
     plt.show()
 
@@ -170,7 +169,7 @@ if __name__ == "__main__":
         help="Schedule type for step skipping",
     )
     p.add_argument(
-        "--iter_num", type=int, default=1000, help="Number of steps when using quad schedule"
+        "--iter_num", type=int, default=100, help="Number of steps when using quad schedule"
     )
 
     main(p.parse_args())
