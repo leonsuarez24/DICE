@@ -19,7 +19,7 @@ This repository contains the code for the paper **"DICE: Diffusion Consensus Equ
 
 ---
 
-## Pre-trained Weights
+## Pre-trained Weights and Test Images
 
 - Google Drive: https://drive.google.com/drive/folders/1gHY-Pp2SDmHXhvLtDdXFpNthbffAeZSs?usp=sharing
 
